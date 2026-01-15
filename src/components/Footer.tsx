@@ -35,7 +35,7 @@ const Footer = () => {
             >
               Telegram
             </a>
-            {["WhatsApp", "VK"].map((social) => (
+            {["", ""].map((social) => (
               <a
                 key={social}
                 href="#"
