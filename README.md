@@ -1,73 +1,73 @@
-# Welcome to your Lovable project
+# CleanDvor
 
-## Project info
+Веб-сайт для компании CleanDvor — профессиональное благоустройство территории в Москве.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Технологии
 
-## How can I edit this code?
+Проект построен с использованием:
 
-There are several ways of editing your application.
+- **Vite** — быстрый сборщик и dev-сервер
+- **TypeScript** — типизированный JavaScript
+- **React** — библиотека для создания пользовательских интерфейсов
+- **shadcn-ui** — компоненты UI
+- **Tailwind CSS** — утилитарный CSS фреймворк
+- **React Router** — маршрутизация
 
-**Use Lovable**
+## Установка и запуск
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### Требования
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (рекомендуется установить через [nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
+- npm
 
-**Use your preferred IDE**
+### Шаги для запуска
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. Клонируйте репозиторий:
+```bash
+git clone https://github.com/famellow/Cleandvor.git
+cd Cleandvor
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. Установите зависимости:
+```bash
+npm install
+```
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Запустите dev-сервер:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Приложение будет доступно по адресу `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Доступные команды
 
-**Use GitHub Codespaces**
+- `npm run dev` — запуск dev-сервера с hot-reload
+- `npm run build` — сборка production версии
+- `npm run preview` — предпросмотр production сборки
+- `npm run lint` — проверка кода линтером
+- `npm test` — запуск тестов
+- `npm run test:watch` — запуск тестов в watch режиме
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Деплой
 
-## What technologies are used for this project?
+Проект настроен для автоматического деплоя на GitHub Pages через GitHub Actions.
 
-This project is built with:
+После push в ветку `main` автоматически запускается сборка и деплой.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Сайт будет доступен по адресу: `https://famellow.github.io/Cleandvor/`
 
-## How can I deploy this project?
+## Структура проекта
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```
+Cleandvor/
+├── public/          # Статические файлы
+├── src/
+│   ├── components/ # React компоненты
+│   ├── pages/      # Страницы приложения
+│   ├── hooks/      # Кастомные хуки
+│   ├── lib/        # Утилиты
+│   └── App.tsx     # Главный компонент
+├── .github/        # GitHub Actions workflows
+└── vite.config.ts  # Конфигурация Vite
+```
