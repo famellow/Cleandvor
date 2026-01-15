@@ -31,8 +31,29 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check CNAME file
+        run: |
+          echo "Checking CNAME files..."
+          if [ -f "public/CNAME" ]; then
+            echo "public/CNAME exists:"
+            cat public/CNAME
+          fi
+          if [ -f "CNAME" ]; then
+            echo "CNAME exists:"
+            cat CNAME
+          fi
+
       - name: Build
         run: npm run build
+        env:
+          NODE_ENV: production
+          # Явно указываем base path для GitHub Pages
+          VITE_BASE_PATH: /Cleandvor/
+
+      - name: Verify build output
+        run: |
+          echo "Checking dist/index.html:"
+          head -30 dist/index.html || echo "dist/index.html not found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
