@@ -113,7 +113,7 @@ const HeroSection = () => {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="absolute top-10 right-0 bg-background shadow-card rounded-2xl p-4"
             >
-              <p className="text-2xl font-bold text-primary">500+</p>
+              <p className="text-2xl font-bold text-primary">100+</p>
               <p className="text-sm text-muted-foreground">Объектов в месяц</p>
             </motion.div>
 
@@ -122,7 +122,7 @@ const HeroSection = () => {
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
               className="absolute bottom-10 left-0 bg-background shadow-card rounded-2xl p-4"
             >
-              <p className="text-2xl font-bold text-primary">5 лет</p>
+              <p className="text-2xl font-bold text-primary">2 года</p>
               <p className="text-sm text-muted-foreground">На рынке</p>
             </motion.div>
           </motion.div>
