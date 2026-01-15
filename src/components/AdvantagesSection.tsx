@@ -61,8 +61,8 @@ const AdvantagesSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6">
               {[
-                { value: "5+", label: "Лет опыта" },
-                { value: "1000+", label: "Объектов" },
+                { value: "2+", label: "Лет опыта" },
+                { value: "100+", label: "Объектов" },
                 { value: "98%", label: "Довольных" },
               ].map((stat, index) => (
                 <motion.div
