@@ -6,7 +6,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzIFTFC8c4MoBT2u21aRvu6AeLZKr1bPXCRjKtu7uSHlATGUgArztN5uxNrFXNMCI9r/exec";
+// URL вашего Google Apps Script веб-приложения
+// Получите его после развертывания скрипта в Google Apps Script
+// Инструкция: см. GOOGLE_SHEETS_SETUP.md
+const GOOGLE_SCRIPT_URL = 
+  import.meta.env.VITE_GOOGLE_SCRIPT_URL || 
+  "https://script.google.com/macros/s/AKfycbxqHqJuxet-AY4G4F_8rzkAcOjZP3mfVvI6O9PWyVrArTWrMuTWm42XGUoxSWIBm894/exec";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -69,8 +74,8 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "info@cleandvor.ru",
-      href: "mailto:info@cleandvor.ru",
+      value: "unfogetable16@gmail.com",
+      href: "mailto:unfogetable16@gmail.com",
     },
     {
       icon: MapPin,
