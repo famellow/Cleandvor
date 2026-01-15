@@ -1,67 +1,12 @@
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 
-// URL вашего Google Apps Script веб-приложения
-// Получите его после развертывания скрипта в Google Apps Script
-// Инструкция: см. GOOGLE_SHEETS_SETUP.md
-const GOOGLE_SCRIPT_URL = 
-  import.meta.env.VITE_GOOGLE_SCRIPT_URL || 
-  "https://script.google.com/macros/s/AKfycbxqHqJuxet-AY4G4F_8rzkAcOjZP3mfVvI6O9PWyVrArTWrMuTWm42XGUoxSWIBm894/exec";
+const GOOGLE_FORM_URL = "https://forms.gle/uUVkSfJEGoRFUoiKA";
 
 const ContactSection = () => {
-  const { toast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.name.trim() || !formData.phone.trim()) {
-      toast({
-        title: "Ошибка",
-        description: "Пожалуйста, заполните имя и телефон",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsLoading(true);
-
-    try {
-      const formDataToSend = new FormData();
-      formDataToSend.append("name", formData.name.trim());
-      formDataToSend.append("phone", formData.phone.trim());
-      formDataToSend.append("message", formData.message.trim());
-
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        body: formDataToSend,
-        mode: "no-cors",
-      });
-
-      toast({
-        title: "Заявка отправлена!",
-        description: "Мы свяжемся с вами в ближайшее время.",
-      });
-      setFormData({ name: "", phone: "", message: "" });
-    } catch (error) {
-      toast({
-        title: "Ошибка",
-        description: "Не удалось отправить заявку. Попробуйте позже.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+  const handleOpenForm = () => {
+    window.open(GOOGLE_FORM_URL, "_blank");
   };
 
   const contacts = [
@@ -107,66 +52,22 @@ const ContactSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Contact Form */}
+          {/* Contact Form Button */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="flex items-center justify-center"
           >
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <Input
-                  placeholder="Ваше имя"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="h-12 bg-background border-border"
-                  required
-                  disabled={isLoading}
-                  maxLength={100}
-                />
-              </div>
-              <div>
-                <Input
-                  placeholder="Номер телефона"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="h-12 bg-background border-border"
-                  required
-                  disabled={isLoading}
-                  maxLength={20}
-                />
-              </div>
-              <div>
-                <Textarea
-                  placeholder="Опишите, какая услуга вам нужна"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="min-h-[120px] bg-background border-border resize-none"
-                  disabled={isLoading}
-                  maxLength={1000}
-                />
-              </div>
-              <Button 
-                type="submit" 
-                size="lg" 
-                className="w-full gradient-hero text-primary-foreground shadow-soft hover:shadow-hover transition-all"
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Отправка...
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4 mr-2" />
-                    Отправить заявку
-                  </>
-                )}
-              </Button>
-            </form>
+            <Button 
+              onClick={handleOpenForm}
+              size="lg" 
+              className="w-full gradient-hero text-primary-foreground shadow-soft hover:shadow-hover transition-all h-14 text-lg"
+            >
+              <Send className="w-5 h-5 mr-2" />
+              Заполнить форму заявки
+            </Button>
           </motion.div>
 
           {/* Contact Info */}
