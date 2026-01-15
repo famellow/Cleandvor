@@ -48,7 +48,7 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-4">
             <a href="tel:+79994653035" className="flex items-center gap-2 text-foreground">
               <Phone className="w-4 h-4 text-primary" />
-              <span className="font-medium">+7 (900) 123-45-67</span>
+              <span className="font-medium">+7 (999) 465-30-35</span>
             </a>
             <Button size="sm" className="gradient-hero text-primary-foreground shadow-soft hover:shadow-hover transition-shadow">
               Оставить заявку
